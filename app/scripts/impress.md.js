@@ -1,4 +1,4 @@
-/* global impress */
+/* global impress, marked */
 
 (function (document, window) {
     'use strict';
@@ -12,7 +12,10 @@
     ImpressMd.prototype.init = function(rootId) {
         this.rootId = rootId || 'impress';
 
-        console.log(this.content);
+        var htmlContent = marked(this.content);
+
+        this.root = document.getElementById(this.rootId);
+        this.root.innerHTML = htmlContent;
 
         impress().init(this.rootId);
     };
