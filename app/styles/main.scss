@@ -10,41 +10,39 @@ body {
 }
 
 .zoom-item h3 {
-    transition: font-size 1s;
+    transition: font-size 0.8s linear 0.2s;
+}
+
+@mixin zoom-top {
+    opacity: 1;
+}
+
+@mixin zoom-child {
+    opacity: 1;
+    cursor: pointer;
+
+    * {
+        visibility: hidden;
+    }
+
+    h3 {
+        visibility: visible;
+        font-size: 200px;
+    }
 }
 
 .impress-on-zoom-test {
     .zoom-item {
-        opacity: 1;
-        cursor: pointer;
-
-        * {
-            visibility: hidden;
-        }
-
-        h3 {
-            visibility: visible;
-            font-size: 200px;
-        }
+        @include zoom-child;
     }
 }
 
 .impress-on-zoom-test-overview {
     #zoom-test {
-        opacity: 1;
+        @include zoom-top;
     }
 
     .zoom-item {
-        opacity: 1;
-        cursor: pointer;
-
-        * {
-            visibility: hidden;
-        }
-
-        h3 {
-            visibility: visible;
-            font-size: 200px;
-        }
+        @include zoom-child;
     }
 }
