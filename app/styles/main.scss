@@ -4,3 +4,47 @@
 body {
     background: #fafafa;
 }
+
+.zoom-overview {
+    z-index: -1;
+}
+
+.zoom-item h3 {
+    transition: font-size 1s;
+}
+
+.impress-on-zoom-test {
+    .zoom-item {
+        opacity: 1;
+        cursor: pointer;
+
+        * {
+            visibility: hidden;
+        }
+
+        h3 {
+            visibility: visible;
+            font-size: 200px;
+        }
+    }
+}
+
+.impress-on-zoom-test-overview {
+    #zoom-test {
+        opacity: 1;
+    }
+
+    .zoom-item {
+        opacity: 1;
+        cursor: pointer;
+
+        * {
+            visibility: hidden;
+        }
+
+        h3 {
+            visibility: visible;
+            font-size: 200px;
+        }
+    }
+}
