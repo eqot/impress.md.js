@@ -1,6 +1,8 @@
 {
   "name": "impress.md.js",
   "private": false,
-  "dependencies": {},
+  "dependencies": {
+    "impress.js": "~0.5.3"
+  },
   "devDependencies": {}
 }
