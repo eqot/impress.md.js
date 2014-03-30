@@ -142,7 +142,7 @@
 
         var strings = text.split(',');
         for (var i = 0; i < strings.length; i++) {
-            if (strings[i].match(/\s*([\w-]+):\s*"*([\w-.]+)"*/)) {
+            if (strings[i].match(/\s*([\w-]+):\s*"*([\w-. ]+)"*/)) {
                 var key = RegExp.$1;
                 var value = RegExp.$2;
                 // console.log(key + ': ' + value);
