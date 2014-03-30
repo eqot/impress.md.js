@@ -10,7 +10,7 @@ body {
 }
 
 .zoom-item h3 {
-    transition: font-size 1s;
+    transition: font-size 0.8s linear 0.2s;
 }
 
 @mixin zoom-top {
