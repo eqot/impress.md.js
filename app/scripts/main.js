@@ -1,1 +1,8 @@
-console.log('\'Allo \'Allo!');
+/* global ImpressMd */
+
+'use strict';
+
+window.onload = function () {
+    var impressMd = new ImpressMd();
+    impressMd.init();
+};
