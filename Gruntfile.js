@@ -62,6 +62,13 @@ module.exports = function (grunt) {
                     '.tmp/styles/{,*/}*.css',
                     '<%= config.app %>/images/{,*/}*'
                 ]
+            },
+            content: {
+                files: ['<%= config.app %>/content.md', '<%= config.app %>/scripts/impress.md.js'],
+                tasks: ['replace:livereload'],
+                options: {
+                    livereload: true
+                }
             }
         },
 
@@ -341,6 +348,45 @@ module.exports = function (grunt) {
                 'imagemin',
                 'svgmin'
             ]
+        },
+
+        replace: {
+            dist: {
+                options: {
+                    patterns: [
+                        {
+                            match: 'content',
+                            replacement: '<%= grunt.file.read("app/content.md").replace(/\\n/g, "\\\\n\\\\\\n") %>'
+                        }
+                    ]
+                },
+                files: [
+                    {
+                        expand: true,
+                        flatten: true,
+                        src: ['<%= config.dist %>/scripts/impress.md.js'],
+                        dest: '<%= config.dist %>/scripts/'
+                    }
+                ]
+            },
+            livereload: {
+                options: {
+                    patterns: [
+                        {
+                            match: 'content',
+                            replacement: '<%= grunt.file.read("app/content.md").replace(/\\n/g, "\\\\n\\\\\\n") %>'
+                        }
+                    ]
+                },
+                files: [
+                    {
+                        expand: true,
+                        flatten: true,
+                        src: ['<%= config.app %>/scripts/impress.md.js'],
+                        dest: '.tmp/scripts/'
+                    }
+                ]
+            }
         }
     });
 
@@ -387,6 +433,7 @@ module.exports = function (grunt) {
         'concat',
         'cssmin',
         'uglify',
+        'replace:dist',
         'copy:dist',
         'rev',
         'usemin',
