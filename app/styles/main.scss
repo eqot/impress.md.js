@@ -9,8 +9,14 @@ body {
     z-index: -1;
 }
 
-.zoom-item h3 {
-    transition: font-size 0.8s linear 0.2s;
+.zoom-item {
+    * {
+        transition: transform 0.8s linear 0.3s, opacity 1s linear;
+    }
+
+    h3 {
+        transform-origin: -7% -160%;
+    }
 }
 
 @mixin zoom-top {
@@ -22,12 +28,12 @@ body {
     cursor: pointer;
 
     * {
-        visibility: hidden;
+        opacity: 0;
     }
 
     h3 {
-        visibility: visible;
-        font-size: 200px;
+        opacity: 1;
+        transform: scale(4);
     }
 }
 
