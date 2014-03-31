@@ -15,16 +15,10 @@
         groups: {}
     };
 
-    var ImpressMd = window.ImpressMd = function () {
-        this.content = '@@content';
-
-        this.rootId = null;
-    };
-
-    ImpressMd.prototype.init = function(rootId) {
+    var ImpressMd = window.ImpressMd = function (rootId) {
         this.rootId = rootId || 'impress';
 
-        var htmlContent = marked(this.content, {renderer: this.renderer});
+        var htmlContent = marked(content, {renderer: this.renderer});
 
         if (state.isOpenBracket) {
             htmlContent += '</div>';
@@ -185,5 +179,7 @@
 
         return params;
     }
+
+    var content = '@@content';
 
 })(document, window);
