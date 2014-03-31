@@ -1,0 +1,1 @@
+"use strict";window.onload=function(){new ImpressMd};
