@@ -26,8 +26,8 @@
 
         this.root = document.getElementById(this.rootId);
         this.root.innerHTML = htmlContent;
-        this.root.addEventListener("impress:stepenter", setGroupToBody);
-        this.root.addEventListener("impress:stepleave", setGroupToBody);
+        this.root.addEventListener('impress:stepenter', setGroupToBody);
+        this.root.addEventListener('impress:stepleave', setGroupToBody);
 
         impress().init(this.rootId);
     };
