@@ -4,5 +4,4 @@
 
 window.onload = function () {
     var impressMd = new ImpressMd();
-    impressMd.init();
 };

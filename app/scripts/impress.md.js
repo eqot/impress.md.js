@@ -15,16 +15,10 @@
         groups: {}
     };
 
-    var ImpressMd = window.ImpressMd = function () {
-        this.content = '@@content';
-
-        this.rootId = null;
-    };
-
-    ImpressMd.prototype.init = function(rootId) {
+    var ImpressMd = window.ImpressMd = function (rootId) {
         this.rootId = rootId || 'impress';
 
-        var htmlContent = marked(this.content, {renderer: this.renderer});
+        var htmlContent = marked(content, {renderer: this.renderer});
 
         if (state.isOpenBracket) {
             htmlContent += '</div>';
@@ -32,8 +26,8 @@
 
         this.root = document.getElementById(this.rootId);
         this.root.innerHTML = htmlContent;
-        this.root.addEventListener("impress:stepenter", setGroupToBody);
-        this.root.addEventListener("impress:stepleave", setGroupToBody);
+        this.root.addEventListener('impress:stepenter', setGroupToBody);
+        this.root.addEventListener('impress:stepleave', setGroupToBody);
 
         impress().init(this.rootId);
     };
@@ -185,5 +179,7 @@
 
         return params;
     }
+
+    var content = '@@content';
 
 })(document, window);
