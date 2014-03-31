@@ -13,16 +13,16 @@ This is a test too.
 
 This is an overview.
 
-### Detail 1    <!-- class: "slide zoom-item", tx: -280, scale: 0.25 -->
+## Detail 1    <!-- class: "slide zoom-item", group: "zoom-test", tx: -280, scale: 0.25 -->
 
 * foo
 * bar
   * bar1
   * bar 2
 
-### Detail 2    <!-- class: "slide zoom-item", scale: 0.25 -->
+## Detail 2    <!-- class: "slide zoom-item", group: "zoom-test", scale: 0.25 -->
 
-### Detail 3    <!-- class: "slide zoom-item", tx:  280, scale: 0.25 -->
+## Detail 3    <!-- class: "slide zoom-item", group: "zoom-test", tx:  280, scale: 0.25 -->
 
 * foo
 * bar

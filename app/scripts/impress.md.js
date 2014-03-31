@@ -11,7 +11,8 @@
         dx: 1500,
         dy: 0,
         dz: 0,
-        isOpenBracket: false
+        isOpenBracket: false,
+        groups: {}
     };
 
     var ImpressMd = window.ImpressMd = function () {
@@ -31,9 +32,36 @@
 
         this.root = document.getElementById(this.rootId);
         this.root.innerHTML = htmlContent;
+        this.root.addEventListener("impress:stepenter", setGroupToBody);
+        this.root.addEventListener("impress:stepleave", setGroupToBody);
 
         impress().init(this.rootId);
     };
+
+    function setGroupToBody () {
+        var body = document.body;
+
+        var oldGroup = null;
+        var newGroup = null;
+        var classes = body.classList;
+        for (var i = 0; i < classes.length; i++) {
+            if (classes[i].match(/(impress-group-.+)/)) {
+                oldGroup = RegExp.$1;
+            }
+
+            if (classes[i].match(/impress-on-(.+)/)) {
+                newGroup = state.groups[RegExp.$1];
+            }
+        }
+
+        if (oldGroup) {
+            body.classList.remove(oldGroup);
+        }
+
+        if (newGroup) {
+            body.classList.add('impress-group-' + newGroup);
+        }
+    }
 
     ImpressMd.prototype.renderer = new marked.Renderer();
 
@@ -104,6 +132,10 @@
             if (params['rotate-z']) {
                 config.rotateZ = params['rotate-z'];
             }
+        }
+
+        if (params.group) {
+            state.groups[config.id] = params.group;
         }
 
         var html = '';

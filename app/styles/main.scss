@@ -7,48 +7,46 @@ body {
 
 .zoom-overview {
     z-index: -1;
+
+    &:not(.active) {
+        opacity: 1;
+    }
 }
 
 .zoom-item {
-    * {
-        transition: transform 0.8s linear 0.3s, opacity 1s linear;
+    border-width: 3px;
+    transition: border 1s ease-in-out;
+
+    &:not(.active) {
+        opacity: 1;
     }
 
-    h3 {
+    * {
+        opacity: 0;
+        transition: opacity 1s ease-in-out, transform 1s ease-in-out 0.2s;
+    }
+
+    h2 {
+        opacity: 1;
+        transform: scale(3.4);
         transform-origin: -7% -160%;
     }
 }
 
-@mixin zoom-top {
-    opacity: 1;
-}
-
 @mixin zoom-child {
-    opacity: 1;
-    cursor: pointer;
+    .zoom-item {
+        border-width: 1px;
 
-    * {
-        opacity: 0;
-    }
+        * {
+            opacity: 1;
+        }
 
-    h3 {
-        opacity: 1;
-        transform: scale(4);
+        h2 {
+            transform: scale(1);
+        }
     }
 }
 
-.impress-on-zoom-test {
-    .zoom-item {
-        @include zoom-child;
-    }
-}
-
-.impress-on-zoom-test-overview {
-    #zoom-test {
-        @include zoom-top;
-    }
-
-    .zoom-item {
-        @include zoom-child;
-    }
+.impress-group-zoom-test {
+    @include zoom-child;
 }
