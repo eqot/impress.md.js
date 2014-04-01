@@ -130,10 +130,10 @@
             if (params['rotate-z']) {
                 config.rotateZ = params['rotate-z'];
             }
-        }
 
-        if (params.group) {
-            state.groups[config.id] = params.group.split(' ');
+            if (params.group) {
+                state.groups[config.id] = params.group.split(' ');
+            }
         }
 
         var html = '';
