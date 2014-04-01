@@ -32,10 +32,14 @@ This is an overview.
 ##     <!-- group: "zoom-test", class: "zoom-overview", dx: 1500 -->
 
 
-##    <!-- class: "slide" -->
+## 3D Layers Test    <!-- class: "slide layers-3d", dx: 0 -->
+
+##     <!-- group: "layers-test", class: "layers-3d", z: 100, rotate-x: -70, rotate-y: -45 -->
 
 <div class="layers">
   ![Layer 1   <!-- class: "layer", id: "layer1", width: 560 -->](images/layer1.svg)
   ![Layer 2   <!-- class: "layer", id: "layer2", width: 560 -->](images/layer2.svg)
   ![Layer 3   <!-- class: "layer", id: "layer3", width: 560 -->](images/layer3.svg)
 </div>
+
+##     <!-- group: "layers-test", id: "layers-detail" -->
