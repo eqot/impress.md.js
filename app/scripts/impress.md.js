@@ -167,6 +167,34 @@
         return html;
     };
 
+    ImpressMd.prototype.renderer.image = function (href, title, text) {
+        var params = null;
+        if (htmlDecode(text).match(/(.*)<!-- (.+) -->/)) {
+            params = parse(RegExp.$2);
+            text = escape(RegExp.$1.replace(/\s+$/, ''));
+        }
+        // console.log(params);
+
+        var out = '<img src="' + href + '" alt="' + text + '"';
+        if (title) {
+            out += ' title="' + title + '"';
+        }
+        if (params) {
+            if (params['class']) {
+                out += ' class="' + params['class'] + '"';
+            }
+            if (params.id) {
+                out += ' id="' + params.id + '"';
+            }
+            if (params.width) {
+                out += ' width="' + params.width + '"';
+            }
+        }
+
+        out += '>';
+        return out;
+    };
+
     function parse (text) {
         var params = {};
 
@@ -182,6 +210,12 @@
         }
 
         return params;
+    }
+
+    function htmlDecode (input) {
+        var e = document.createElement('div');
+        e.innerHTML = input;
+        return e.childNodes.length === 0 ? '' : e.childNodes[0].nodeValue;
     }
 
     var content = '@@content';
