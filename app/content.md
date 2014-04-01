@@ -9,24 +9,24 @@ This is a test.
 This is a test too.
 
 
-## Zoom Test    <!-- class: "slide zoom-overview", id: "zoom-test", dx: 0 -->
+## Zoom Test    <!-- group: "zoom-test", class: "slide zoom-overview", dx: 0 -->
 
 This is an overview.
 
-## Detail 1    <!-- class: "slide zoom-item", group: "zoom-test", tx: -280, scale: 0.25 -->
+## Detail 1    <!-- group: "zoom-test zoom-test-child", class: "slide zoom-item", scale: 0.25, tx: -280 -->
 
 * foo
 * bar
   * bar1
   * bar 2
 
-## Detail 2    <!-- class: "slide zoom-item", group: "zoom-test", scale: 0.25 -->
+## Detail 2    <!-- group: "zoom-test zoom-test-child", class: "slide zoom-item", scale: 0.25 -->
 
-## Detail 3    <!-- class: "slide zoom-item", group: "zoom-test", tx:  280, scale: 0.25 -->
+## Detail 3    <!-- group: "zoom-test zoom-test-child", class: "slide zoom-item", scale: 0.25, tx:  280 -->
 
 * foo
 * bar
   * bar1
   * bar 2
 
-##     <!-- class: "zoom-overview", id: "zoom-test-overview", dx: 1500 -->
+##     <!-- group: "zoom-test", class: "zoom-overview", dx: 1500 -->

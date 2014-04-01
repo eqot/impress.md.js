@@ -5,21 +5,8 @@ body {
     background: #fafafa;
 }
 
-.zoom-overview {
-    z-index: -1;
-
-    &:not(.active) {
-        opacity: 1;
-    }
-}
-
 .zoom-item {
     border-width: 3px;
-    transition: border 1s ease-in-out;
-
-    &:not(.active) {
-        opacity: 1;
-    }
 
     * {
         opacity: 0;
@@ -33,9 +20,29 @@ body {
     }
 }
 
+@mixin zoom-parent {
+    .zoom-overview {
+        opacity: 1;
+        z-index: -1;
+    }
+
+    .zoom-item {
+        opacity: 1;
+        cursor: pointer;
+    }
+}
+
 @mixin zoom-child {
+    .zoom-overview {
+        opacity: 0.3;
+    }
+
     .zoom-item {
         border-width: 1px;
+
+        &:not(.active) {
+            opacity: 0.3;
+        }
 
         * {
             opacity: 1;
@@ -48,5 +55,9 @@ body {
 }
 
 .impress-group-zoom-test {
+    @include zoom-parent;
+}
+
+.impress-group-zoom-test-child {
     @include zoom-child;
 }

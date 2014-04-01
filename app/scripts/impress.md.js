@@ -35,25 +35,29 @@
     function setGroupToBody () {
         var body = document.body;
 
-        var oldGroup = null;
-        var newGroup = null;
+        var oldGroups = [];
+        var newGroups = [];
         var classes = body.classList;
         for (var i = 0; i < classes.length; i++) {
             if (classes[i].match(/(impress-group-.+)/)) {
-                oldGroup = RegExp.$1;
+                oldGroups.push(RegExp.$1);
             }
 
             if (classes[i].match(/impress-on-(.+)/)) {
-                newGroup = state.groups[RegExp.$1];
+                newGroups = state.groups[RegExp.$1];
             }
         }
 
-        if (oldGroup) {
-            body.classList.remove(oldGroup);
+        if (oldGroups.length > 0) {
+            for (var i = 0; i < oldGroups.length; i++) {
+                body.classList.remove(oldGroups[i]);
+            }
         }
 
-        if (newGroup) {
-            body.classList.add('impress-group-' + newGroup);
+        if (newGroups && newGroups.length > 0) {
+            for (var i = 0; i < newGroups.length; i++) {
+                body.classList.add('impress-group-' + newGroups[i]);
+            }
         }
     }
 
@@ -129,7 +133,7 @@
         }
 
         if (params.group) {
-            state.groups[config.id] = params.group;
+            state.groups[config.id] = params.group.split(' ');
         }
 
         var html = '';
