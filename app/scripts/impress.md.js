@@ -35,25 +35,29 @@
     function setGroupToBody () {
         var body = document.body;
 
-        var oldGroup = null;
-        var newGroup = null;
+        var oldGroups = [];
+        var newGroups = [];
         var classes = body.classList;
         for (var i = 0; i < classes.length; i++) {
             if (classes[i].match(/(impress-group-.+)/)) {
-                oldGroup = RegExp.$1;
+                oldGroups.push(RegExp.$1);
             }
 
             if (classes[i].match(/impress-on-(.+)/)) {
-                newGroup = state.groups[RegExp.$1];
+                newGroups = state.groups[RegExp.$1];
             }
         }
 
-        if (oldGroup) {
-            body.classList.remove(oldGroup);
+        if (oldGroups.length > 0) {
+            for (var i = 0; i < oldGroups.length; i++) {
+                body.classList.remove(oldGroups[i]);
+            }
         }
 
-        if (newGroup) {
-            body.classList.add('impress-group-' + newGroup);
+        if (newGroups && newGroups.length > 0) {
+            for (var i = 0; i < newGroups.length; i++) {
+                body.classList.add('impress-group-' + newGroups[i]);
+            }
         }
     }
 
@@ -126,10 +130,10 @@
             if (params['rotate-z']) {
                 config.rotateZ = params['rotate-z'];
             }
-        }
 
-        if (params.group) {
-            state.groups[config.id] = params.group;
+            if (params.group) {
+                state.groups[config.id] = params.group.split(' ');
+            }
         }
 
         var html = '';
@@ -163,12 +167,40 @@
         return html;
     };
 
+    ImpressMd.prototype.renderer.image = function (href, title, text) {
+        var params = null;
+        if (htmlDecode(text).match(/(.*)<!-- (.+) -->/)) {
+            params = parse(RegExp.$2);
+            text = escape(RegExp.$1.replace(/\s+$/, ''));
+        }
+        // console.log(params);
+
+        var out = '<img src="' + href + '" alt="' + text + '"';
+        if (title) {
+            out += ' title="' + title + '"';
+        }
+        if (params) {
+            if (params['class']) {
+                out += ' class="' + params['class'] + '"';
+            }
+            if (params.id) {
+                out += ' id="' + params.id + '"';
+            }
+            if (params.width) {
+                out += ' width="' + params.width + '"';
+            }
+        }
+
+        out += '>';
+        return out;
+    };
+
     function parse (text) {
         var params = {};
 
         var strings = text.split(',');
         for (var i = 0; i < strings.length; i++) {
-            if (strings[i].match(/\s*([\w-]+):\s*"*([\w-. ]+)"*/)) {
+            if (strings[i].match(/\s*([\w-]+):\s*['"]*([\w-. ]+)['"]*/)) {
                 var key = RegExp.$1;
                 var value = RegExp.$2;
                 // console.log(key + ': ' + value);
@@ -178,6 +210,12 @@
         }
 
         return params;
+    }
+
+    function htmlDecode (input) {
+        var e = document.createElement('div');
+        e.innerHTML = input;
+        return e.childNodes.length === 0 ? '' : e.childNodes[0].nodeValue;
     }
 
     var content = '@@content';

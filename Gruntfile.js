@@ -356,7 +356,7 @@ module.exports = function (grunt) {
                     patterns: [
                         {
                             match: 'content',
-                            replacement: '<%= grunt.file.read("app/content.md").replace(/\\n/g, "\\\\n\\\\\\n") %>'
+                            replacement: '<%= grunt.file.read("app/content.md").replace(/\\n/g, "\\\\n\\\\\\n").replace(/\"/g, "\'") %>'
                         }
                     ]
                 },
