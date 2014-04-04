@@ -26,10 +26,18 @@ body {
         transition: opacity 1s ease-in-out, transform 1s ease-in-out 0.2s;
     }
 
-    h2 {
+    h2, h3 {
         opacity: 1;
+    }
+
+    h2 {
         transform: scale(3.4);
         transform-origin: -7% -160%;
+    }
+
+    h3 {
+        transform: scale(3);
+        transform-origin: 50% -250%;
     }
 }
 
@@ -61,7 +69,7 @@ body {
             opacity: 1;
         }
 
-        h2 {
+        h2, h3 {
             transform: scale(1);
         }
     }
