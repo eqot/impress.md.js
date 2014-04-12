@@ -12,9 +12,9 @@ This aims at making great presentation for audiences to easily understand its co
 
 Here are examples.
 
-* [Demo 1](http://eqot.github.io/impress.md.js/#/page3)
+* [Demo 1](http://eqot.github.io/impress.md.js/#/overview-and-details)
   * Zoom-in and -out are very suitable representations to show an overview of something first and zoom in its details after the overview
-* [Demo 2](http://eqot.github.io/impress.md.js/#/page8)
+* [Demo 2](http://eqot.github.io/impress.md.js/#/3d-structure)
   * 3D transition is nice representation for audiences to clearly understand 3D structure of something
 
 Such representations were impossible or quite tough to be made with traditional presentation tools.
@@ -28,8 +28,9 @@ It is important to create something new which web technologies can do, not to ju
 * [npm](https://github.com/npm/npm)
 * [Bower](http://bower.io/)
 * [Grunt](http://gruntjs.com/)
-* [Compass](http://compass-style.org/)
-  * It requires ```gem``` command in [Ruby](http://www.ruby-lang.org/) for installation
+
+Please note that this does NOT require [Compass](http://compass-style.org/) and ```gem``` command in [Ruby](http://www.ruby-lang.org/) which [generator-webapp](https://github.com/yeoman/generator-webapp) requires for compiling *.scss files by default.
+Instead, this uses [Less](http://lesscss.org/) through [grunt-contrib-less](https://github.com/gruntjs/grunt-contrib-less) for compiling *.less files.
 
 
 ## How to use
