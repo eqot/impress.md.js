@@ -28,8 +28,9 @@ It is important to create something new which web technologies can do, not to ju
 * [npm](https://github.com/npm/npm)
 * [Bower](http://bower.io/)
 * [Grunt](http://gruntjs.com/)
-* [Compass](http://compass-style.org/)
-  * It requires ```gem``` command in [Ruby](http://www.ruby-lang.org/) for installation
+
+Please note that this does NOT require [Compass](http://compass-style.org/) and ```gem``` command in [Ruby](http://www.ruby-lang.org/) which [generator-webapp](https://github.com/yeoman/generator-webapp) requires for compiling *.scss files by default.
+Instead, this uses [Less](http://lesscss.org/) through [grunt-contrib-less](https://github.com/gruntjs/grunt-contrib-less) for compiling *.less files.
 
 
 ## How to use
