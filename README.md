@@ -12,9 +12,9 @@ This aims at making great presentation for audiences to easily understand its co
 
 Here are examples.
 
-* [Demo 1](http://eqot.github.io/impress.md.js/#/page3)
+* [Demo 1](http://eqot.github.io/impress.md.js/#/overview-and-details)
   * Zoom-in and -out are very suitable representations to show an overview of something first and zoom in its details after the overview
-* [Demo 2](http://eqot.github.io/impress.md.js/#/page8)
+* [Demo 2](http://eqot.github.io/impress.md.js/#/3d-structure)
   * 3D transition is nice representation for audiences to clearly understand 3D structure of something
 
 Such representations were impossible or quite tough to be made with traditional presentation tools.

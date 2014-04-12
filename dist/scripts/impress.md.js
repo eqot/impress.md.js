@@ -9,7 +9,7 @@ This is a test.\n\
 This is a test too.\n\
 \n\
 \n\
-## Zoom Test    <!-- group: 'zoom-test', class: 'slide zoom-overview', dx: 0 -->\n\
+## Overview and Details    <!-- id: 'overview-and-details', group: 'zoom-test', class: 'slide zoom-overview', dx: 0 -->\n\
 \n\
 This is an overview.\n\
 \n\
@@ -32,7 +32,7 @@ This is an overview.\n\
 ##     <!-- group: 'zoom-test', class: 'zoom-overview', dx: 1500 -->\n\
 \n\
 \n\
-## 3D Layers Test    <!-- class: 'slide layers-3d', dx: 0 -->\n\
+## 3D Structure    <!-- id: '3d-structure', class: 'slide layers-3d', dx: 0 -->\n\
 \n\
 ##     <!-- group: 'layers-test', class: 'layers-3d', z: 100, rotate-x: -70, rotate-y: -45 -->\n\
 \n\
