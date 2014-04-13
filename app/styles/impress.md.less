@@ -1,18 +1,32 @@
 
+@body-bg-color: #fafafa;
+@body-width: 900px;
+@body-height: 700px;
+
+@font: 'Open Sans', Arial, sans-serif;
+@font-size: 30px;
+@font-color: rgb(102, 102, 102);
+
+@slide-bg-color: #ffffff;
+@slide-border-color: rgba(0, 0, 0, .3);
+
+
 body {
-    background: #fafafa;
+    background: @body-bg-color;
 }
 
 .step {
-    width: 900px;
+    width: @body-width;
+    height: @body-height;
     padding: 40px;
 
-    box-sizing: border-box;
+    font-family: @font;
+    font-size: @font-size;
+    line-height: 36px;
+    letter-spacing: -1px;
 
-    font-family: 'PT Serif', georgia, serif;
-
-    font-size: 48px;
-    line-height: 1.5;
+    color: @font-color;
+    text-shadow: 0 2px 2px rgba(0, 0, 0, .1);
 
     transition: opacity 1s;
 
@@ -22,36 +36,14 @@ body {
     }
 }
 
-/*
- * SLIDE STEP STYLES
- *
- * inspired by: http://html5slides.googlecode.com/svn/trunk/styles.css
- *
- * ;)
- */
-
 .slide {
     display: block;
-
-    width: 900px;
-    height: 700px;
-
+    box-sizing: border-box;
     padding: 40px 60px;
 
+    background-color: @slide-bg-color;
+
+    border: 1px solid @slide-border-color;
     border-radius: 10px;
-
-    background-color: #ffffff;
-
     box-shadow: 0 2px 6px rgba(0, 0, 0, .1);
-    border: 1px solid rgba(0, 0, 0, .3);
-
-    font-family: 'Open Sans', Arial, sans-serif;
-
-    color: rgb(102, 102, 102);
-    text-shadow: 0 2px 2px rgba(0, 0, 0, .1);
-
-    font-size: 30px;
-    line-height: 36px;
-
-    letter-spacing: -1px;
 }
