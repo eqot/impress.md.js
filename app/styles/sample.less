@@ -79,13 +79,14 @@
 
 
 @layer-x: 480px;
-@layer-z: 350px;
+@layer-y: 100px;
+@layer-z: 0px;
 @layer-z-margin: 80px;
 @layer-rotate-x: 70deg;
 @layer-rotate-y: 45deg;
 
 .layer {
-    transform: rotateY(@layer-rotate-y) rotateX(@layer-rotate-x) translateZ(@layer-z);
+    transform: rotateY(@layer-rotate-y) rotateX(@layer-rotate-x) translateZ(@layer-z) translateY(@layer-y);
     transition: transform 1s ease;
 }
 
@@ -93,7 +94,7 @@
     .layer-loop(@i - 1);
 
     #layer@{i} {
-        transform: rotateY(@layer-rotate-y) rotateX(@layer-rotate-x) translateZ(@layer-z-margin * @i + @layer-z);
+        transform: rotateY(@layer-rotate-y) rotateX(@layer-rotate-x) translateZ(@layer-z-margin * @i + @layer-z) translateY(@layer-y);
         transition-delay: 0.8s;
     }
 }
@@ -103,7 +104,7 @@
 
     #layer@{i} {
         opacity: 1;
-        transform: rotateY(@layer-rotate-y) rotateX(@layer-rotate-x) translateX((@i - 2) * @layer-x) translateZ(@layer-z);
+        transform: rotateY(@layer-rotate-y) rotateX(@layer-rotate-x) translateX((@i - 2) * @layer-x) translateZ(@layer-z) translateY(@layer-y);
     }
 }
 
